@@ -11,79 +11,51 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox fx:id="panelFormIniciarSesion" alignment="CENTER" prefHeight="411.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IniciarSesionFormController">
+<VBox fx:id="panelFormIniciarSesion" alignment="CENTER" prefHeight="411.0" prefWidth="482.0" style="-fx-background-color: #0f1115;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IniciarSesionFormController">
     <children>
-        <Label text="Iniciar Sesión">
+        <Label style="-fx-text-fill: #e0e0e0;" text="Iniciar Sesión">
             <font>
                 <Font name="System Bold" size="30.0" />
             </font>
-            <VBox.margin>
-                <Insets />
-            </VBox.margin>
         </Label>
         <VBox>
             <VBox.margin>
                 <Insets left="50.0" right="50.0" />
             </VBox.margin>
             <children>
-                <Label text="Usuario">
+                <Label style="-fx-text-fill: #FFFFFF;" text="Usuario">
                     <font>
-                        <Font size="20.0" />
+                        <Font name="System Bold" size="18.0" />
                     </font>
-                    <VBox.margin>
-                        <Insets top="10.0" />
-                    </VBox.margin>
                 </Label>
-                <TextField fx:id="txtUsuarioIniciarSesion" prefHeight="37.0" promptText="Ej. Usuario">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
+                <TextField fx:id="txtUsuarioIniciarSesion" prefHeight="37.0" promptText="Ej. Usuario" style="-fx-background-color: #1a1d23; -fx-text-fill: #e0e0e0; -fx-prompt-text-fill: #FFFFFF; -fx-border-color: #76ff03; -fx-border-radius: 5;">
                 </TextField>
-                <Label text="Contraseña">
-                    <font>
-                        <Font size="20.0" />
-                    </font>
+                <Label style="-fx-text-fill: #FFFFFF;" text="Contraseña">
                     <VBox.margin>
                         <Insets top="10.0" />
                     </VBox.margin>
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
                 </Label>
                 <StackPane>
                     <children>
-                        <PasswordField fx:id="txtContraseñaInicio" prefHeight="37.0" promptText="Ej. 1234">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </PasswordField>
-                        <TextField fx:id="txtContraseñaInicioMask" prefHeight="37.0" promptText="Ej. 1234" visible="false">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </TextField>
+                        <PasswordField fx:id="txtContraseñaInicio" prefHeight="37.0" promptText="Ej. 1234" style="-fx-background-color: #1a1d23; -fx-text-fill: #e0e0e0; -fx-prompt-text-fill: #FFFFFF; -fx-border-color: #76ff03; -fx-border-radius: 5;" />
+                        <TextField fx:id="txtContraseñaInicioMask" prefHeight="37.0" promptText="Ej. 1234" style=" -fx-background-color: #1a1d23; -fx-text-fill: #e0e0e0; -fx-border-color: #76ff03; -fx-border-radius: 5;" visible="false" />
                     </children>
                 </StackPane>
-                <CheckBox fx:id="checkVerContraseñaInicio" mnemonicParsing="false" text="Ver Contraseña">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
+                <CheckBox fx:id="checkVerContraseñaInicio" style="-fx-text-fill: #FFFFFF;" text="Ver Contraseña">
                     <VBox.margin>
                         <Insets top="10.0" />
                     </VBox.margin>
                 </CheckBox>
-                <HBox alignment="TOP_CENTER" prefWidth="200.0">
+                <HBox alignment="CENTER">
                     <VBox.margin>
                         <Insets top="20.0" />
                     </VBox.margin>
                     <children>
-                        <Button fx:id="btnIngresarInicioS" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #111; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Ingresar" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="14.0" />
-                            </font>
-                        </Button>
-                        <Button fx:id="btnLimpiarInicioS" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #2a8a85; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Limpiar" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="14.0" />
-                            </font>
+                        <Button fx:id="btnIngresarInicioS" prefHeight="35.0" prefWidth="100.0" style=" -fx-background-color: #76ff03; -fx-text-fill: black; -fx-font-weight: bold; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, #76ff03, 10, 0.5, 0, 0);" text="Ingresar" />
+                        <Button fx:id="btnLimpiarInicioS" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: transparent; -fx-border-color: #76ff03; -fx-text-fill: #76ff03; -fx-border-radius: 5;" text="Limpiar">
                             <HBox.margin>
                                 <Insets left="10.0" />
                             </HBox.margin>

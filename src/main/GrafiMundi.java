@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import servicios.UsuarioService;
 
+// clase principal de la tienda virtual GrafiMundi  
 public class GrafiMundi extends Application {
 
     @Override
@@ -25,3 +26,5 @@ public class GrafiMundi extends Application {
         launch(args);
     }
 }
+
+/* Autores: Coolin Jimenez, Alejandro Ballesteros, Pedro Sierra, Juan Arteaga */

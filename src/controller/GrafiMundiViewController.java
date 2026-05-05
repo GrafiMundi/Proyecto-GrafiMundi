@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 
 public class GrafiMundiViewController implements Initializable {
 
+    // contenedor dinámico donde se cargan las vistas (login y registro)
     @FXML
     private StackPane containerForm;
 
@@ -19,16 +20,19 @@ public class GrafiMundiViewController implements Initializable {
         cargarVista("IniciarSesionForm.fxml");
     }
 
+    // metodo ligado a el boton que lleva al login
     @FXML
     private void irLogin() {
         cargarVista("IniciarSesionForm.fxml");
     }
 
+    // metodo ligado a el boton que lleva al registro
     @FXML
     private void irRegistro() {
         cargarVista("RegistrarseForm.fxml");
     }
 
+    // metodo que carga y cambia la vista de los fxml mostrados dentro del contenedor dinamico
     private void cargarVista(String fxml) {
         try {
             Parent vista = FXMLLoader.load(getClass().getResource("/view/" + fxml));

@@ -48,7 +48,8 @@ public class RegistrarseFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        
+        // metodos para mostrar o ocultar contraseñas
         checkVerContraseñaRegistro.setOnAction(e -> {
             if (checkVerContraseñaRegistro.isSelected()) {
 
@@ -61,7 +62,7 @@ public class RegistrarseFormController implements Initializable {
                 txtConfirmarContraRegistro.setVisible(false);
 
             } else {
-
+                
                 txtContraseñaRegistro.setText(txtContraseñaRegistroMask.getText());
                 txtContraseñaRegistro.setVisible(true);
                 txtContraseñaRegistroMask.setVisible(false);
@@ -76,40 +77,58 @@ public class RegistrarseFormController implements Initializable {
         btnLimpiarRegistrarse.setOnAction(e -> limpiar());
     }
 
+    // metodo principal que realiza todas las validaciones y guarda el usuario si todo esta correcto
     private void registrar() {
 
-        String email = txtEmailRegistro.getText();
-        String usuario = txtUsuarioRegistro.getText();
+    String email = txtEmailRegistro.getText();
+    String usuario = txtUsuarioRegistro.getText();
 
-        String pass = txtContraseñaRegistro.isVisible()
-                ? txtContraseñaRegistro.getText()
-                : txtContraseñaRegistroMask.getText();
+    String pass = txtContraseñaRegistro.isVisible()
+            ? txtContraseñaRegistro.getText()
+            : txtContraseñaRegistroMask.getText();
 
-        String confirm = txtConfirmarContraRegistro.isVisible()
-                ? txtConfirmarContraRegistro.getText()
-                : txtConfirmarContraRegistroMask.getText();
+    String confirm = txtConfirmarContraRegistro.isVisible()
+            ? txtConfirmarContraRegistro.getText()
+            : txtConfirmarContraRegistroMask.getText();
 
-        if (email.isEmpty() || usuario.isEmpty() || pass.isEmpty()) {
-            mostrarAlerta("Error", "Campos vacíos");
-            return;
-        }
-
-        if (!pass.equals(confirm)) {
-            mostrarAlerta("Error", "Las contraseñas no coinciden");
-            return;
-        }
-
-        if (UsuarioService.usuarioExiste(usuario)) {
-            mostrarAlerta("Error", "El usuario ya existe");
-            return;
-        }
-
-        UsuarioService.agregarUsuario(new Usuario(usuario, pass, "cliente"));
-
-        mostrarAlerta("Éxito", "Usuario registrado correctamente");
-        limpiar();
+    // validacion de campos vacíos
+    if (email.isEmpty() || usuario.isEmpty() || pass.isEmpty()) {
+        mostrarAlerta("Error", "Campos vacíos");
+        return;
     }
 
+    // validar el formato del email (que tenga su forma completa para evitar errores)
+    if (!UsuarioService.emailValido(email)) {
+        mostrarAlerta("Error", "Correo electrónico no válido");
+        return;
+    }
+
+    // validar si el email ya existe
+    if (UsuarioService.emailExiste(email)) {
+        mostrarAlerta("Error", "El correo ya está registrado");
+        return;
+    }
+
+    //  validar contraseñas (que sean iguales)
+    if (!pass.equals(confirm)) {
+        mostrarAlerta("Error", "Las contraseñas no coinciden");
+        return;
+    }
+
+    // validar si el usuario ya existe
+    if (UsuarioService.usuarioExiste(usuario)) {
+        mostrarAlerta("Error", "El usuario ya existe");
+        return;
+    }
+
+    // Creacion del nuevo usuario
+    UsuarioService.agregarUsuario(new Usuario(email, usuario, pass, "cliente"));
+
+    mostrarAlerta("Éxito", "Usuario registrado correctamente");
+    limpiar();
+}
+
+    // metodo que limpia todos los campos del formulario.
     private void limpiar() {
         txtEmailRegistro.clear();
         txtUsuarioRegistro.clear();
@@ -121,6 +140,7 @@ public class RegistrarseFormController implements Initializable {
         txtConfirmarContraRegistroMask.clear();
     }
 
+    // metodo que muestra las alertas en caso que ocurra algun error en alguna de las validaciones
     private void mostrarAlerta(String titulo, String mensaje) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(titulo);

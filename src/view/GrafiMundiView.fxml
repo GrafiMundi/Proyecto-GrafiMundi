@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GrafiMundiViewController">
+<GridPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GrafiMundiViewController" style="-fx-background-color: #0f1115;">
     <columnConstraints>
         <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" percentWidth="40.0" />
         <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" percentWidth="60.0" />
@@ -20,14 +20,14 @@
         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <VBox alignment="CENTER" style="-fx-background-color: #30373e;" GridPane.columnIndex="0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+        <VBox alignment="CENTER" style="-fx-background-color: #1a1d23;" GridPane.columnIndex="0">
             <children>
-                <Label text="Bienvenido a GrafiMundi" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                <Label text="Bienvenido a GrafiMundi" textAlignment="CENTER" wrapText="true" style="-fx-text-fill: #e0e0e0;">
                     <font>
                         <Font size="26.0" />
                     </font>
                 </Label>
-                <Label text="¿Estas registrado en nuestra tienda?" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                <Label text="¿Estas registrado en nuestra tienda?" textAlignment="CENTER" wrapText="true" style="-fx-text-fill: #b0bec5;">
                     <VBox.margin>
                         <Insets top="10.0" />
                     </VBox.margin>
@@ -40,12 +40,12 @@
                         <Insets top="40.0" />
                     </VBox.margin>
                     <children>
-                        <Button fx:id="btnLogin" onAction="#irLogin" prefWidth="140" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-radius: 5; -fx-background-radius: 5;" text="Iniciar Sesion" textFill="WHITE">
+                        <Button fx:id="btnLogin" onAction="#irLogin" prefWidth="140" text="Iniciar Sesion" style="-fx-background-color: transparent; -fx-border-color: #76ff03; -fx-border-radius: 5; -fx-background-radius: 5; -fx-text-fill: #76ff03;">
                             <font>
                                 <Font name="System Bold" size="13.0" />
                             </font>
                         </Button>
-                        <Button fx:id="btnRegistro" onAction="#irRegistro" prefWidth="140" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-radius: 5; -fx-background-radius: 5;" text="Registrarse" textFill="WHITE">
+                        <Button fx:id="btnRegistro" onAction="#irRegistro" prefWidth="140" text="Registrarse" style="-fx-background-color: transparent; -fx-border-color: #76ff03; -fx-border-radius: 5; -fx-background-radius: 5; -fx-text-fill: #76ff03;">
                             <HBox.margin>
                                 <Insets left="10.0" />
                             </HBox.margin>
@@ -57,6 +57,6 @@
                 </HBox>
             </children>
         </VBox>
-        <StackPane fx:id="containerForm" style="-fx-background-color: #f4f4f4;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
+        <StackPane fx:id="containerForm" style="-fx-background-color: #0f1115;" GridPane.columnIndex="1" />
     </children>
 </GridPane>

@@ -40,6 +40,7 @@ public class IniciarSesionFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        // metodos para mostrar o ocultar contraseñas
         checkVerContraseñaInicio.setOnAction(e -> {
             if (checkVerContraseñaInicio.isSelected()) {
                 txtContraseñaInicioMask.setText(txtContraseñaInicio.getText());
@@ -56,12 +57,18 @@ public class IniciarSesionFormController implements Initializable {
         btnLimpiarInicioS.setOnAction(e -> limpiar());
     }
 
+    // metodo que valida los datos y verifica las credenciales del usuario
     private void login(ActionEvent event) {
+        
+        // metodo que obtiene los datos ingresados
         String usuario = txtUsuarioIniciarSesion.getText();
+        
+        // metodo que obtiene la contraseña dependiendo si esta oculta o no
         String contraseña = txtContraseñaInicio.isVisible()
                 ? txtContraseñaInicio.getText()
                 : txtContraseñaInicioMask.getText();
 
+        // validacion de campos vacios
         if (usuario.isEmpty() || contraseña.isEmpty()) {
             mostrarAlerta("Error", "Campos vacíos");
             return;
@@ -80,12 +87,14 @@ public class IniciarSesionFormController implements Initializable {
         }
     }
 
+    // metodo que limpia todos los campos del formulario.
     private void limpiar() {
         txtUsuarioIniciarSesion.clear();
         txtContraseñaInicio.clear();
         txtContraseñaInicioMask.clear();
     }
 
+    // metodo que muestra las alertas en caso que ocurra algun error en alguna de las validaciones
     private void mostrarAlerta(String titulo, String mensaje) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(titulo);
